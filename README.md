@@ -3,5 +3,5 @@
 - Designed to easily switch rendering APIs.
 
 ***Notes***
-- Dont ask about "maker.cpp", I didnt feel like messing with CMake.
+- Dont ask about "maker.cpp", My brain works specially.
 - Sandbox project folder currently not working ( Engine doesnt build to .dll yet )
