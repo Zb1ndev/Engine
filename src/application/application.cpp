@@ -19,7 +19,7 @@
   void Engine::Application::Initialize(size_t _width, size_t _height, const char* _title, RendererType _type) {
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-      printf("| SDL2 could not initialize \n");
+      std::cout << "| SDL2 could not be initialized :" << SDL_GetError() << '\n';
       exit(1);
     }
       
@@ -32,23 +32,23 @@
 
     window = SDL_CreateWindow(_title,0,0,_width,_height, SDL_WINDOW_OPENGL);
     if (window == nullptr) {
-      printf("| Window could not be created \n");
+      std::cout << "| Window could not be created :" << SDL_GetError() << '\n';
       exit(1);
     }
 
     SDL_GLContext _glContext = SDL_GL_CreateContext(window);
     if (_glContext == nullptr) {
-      printf("| OpenGL Context could not be created \n");
+      std::cout << "| OpenGL Context could not be created :" << SDL_GetError() << '\n';
       exit(1);
     }
     SDL_Renderer* _sdlRenderer = SDL_CreateRenderer(window, -1, 0);
     if (_sdlRenderer == nullptr) {
-      printf("| Renderer could not be created \n");
+      std::cout << "| Renderer could not be created :" << SDL_GetError() << '\n';
       exit(1);
     }
     SDL_Surface* _surface = SDL_GetWindowSurface(window);
     if (_sdlRenderer == nullptr) {
-      printf("| Surface could not be created \n");
+      std::cout << "| Surface could not be created :" << SDL_GetError() << '\n';
       exit(1);
     }
 
@@ -63,20 +63,17 @@
     Application::instance = this;
     SetIsRunning(true);
 
-
   }
 
   void Engine::Application::Run() {
 
     this->Start();
     while (IsRunning()) {
-
       renderer->Clear();
       SetIsRunning(Input::PollInput());
       this->Update();
       renderer->Draw();
       renderer->SwapBuffer();
-
     }
     Quit();
 
@@ -88,6 +85,8 @@
     renderer->Destroy();
     SDL_DestroyWindow(window);
     SDL_Quit();
+
+    std::cout << "| Progam Exited Normally\n"; 
 
   }
 

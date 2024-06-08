@@ -6,7 +6,7 @@ using namespace std;
 
 const string DIR = "/home/zbinden/Documents/Engine/";
 
-#pragma region Command Line Interaction
+#pragma region Command Line
 
   vector<string> commands;
 
