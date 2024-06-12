@@ -1,7 +1,4 @@
-***About My Engine***
-- A small Application / Game Engine made in C++. 
-- Designed to easily switch rendering APIs.
-
-***Notes***
-- Dont ask about "maker.cpp", My brain works specially.
-- Sandbox project folder currently not working ( Engine doesnt build to .dll yet )
+# Engine
+## About
+Engine is a Game / Application Engine written in C++ and makes use of [SDL2](https://github.com/libsdl-org/SDL) and [GLAD](https://github.com/Dav1dde/glad) ( OpenGL ). It will feature **Hot Swapable Rendering APIs** and an **IMGUI Window Renderer**.
+Scripting will be done in C++ and will have a Graphical Project Manager and Editor.
